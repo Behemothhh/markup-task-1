@@ -6,7 +6,7 @@
 </head>
 <body>
     <main>
-        <header><h3>Блог компании <span style="color:red">Я</span>ндекс.</h3></header> 
+        <header><h3>Блог компании <span>Я</span>ндекс.</h3></header> 
         <section>
             <article>
                 <header><h2>ЯНДЕКС.ПОЧТА: КАК МЫ ИЗМЕРЯЕМ
@@ -41,7 +41,8 @@
                     </p>
                     <p>Как вы знаете, медиана – это серединное, а не среднее значение в выборке.
                             Если у нас имеются числа 1, 2, 2, 3, 8, 10, 20, то медиана – 3, а среднее – 6,5.
-                            В общем случае медиана отлично показывает, сколько грузится средний пользователь.</p>
+                            В общем случае медиана отлично показывает, сколько грузится средний пользователь.
+                    </p>
                     <p>В случае ускорения или замедления медиана, конечно, изменится. Но она не может
                             рассказать, сколько пользователей ускорилось, а сколько замедлилось.</p>
                     <p>APDEX – метрика, которая сразу говорит: хорошо или плохо. Метрика
@@ -60,14 +61,14 @@
                             причину замедления: медленнее стал отвечать сервер либо слишком долго
                             выполняется JavaScript. Выглядит это примерно так:</p>
                     <pre><code>
-this.timings['look-ma-im-start'] = Date.now();
-this.timings['look-ma-finish'] = Date.now();
+this.timings["look-ma-im-start"] = Date.now();
+this.timings["look-ma-finish"] = Date.now();
                     </code></pre>
                     <p>C помощью Date.now() мы получаем текущее время. Все тайминги собираются и при
                             отправке рассчитываются. На этапах разница между “end” и “start” не считается,
                             а все вычисления производятся в конце:</p>
                     <code>
-                            var totalTime = this.timings['look-ma-finish'] - this.timings['look-ma-im-start'];
+                            var totalTime = this.timings["look-ma-finish"] - this.timings["look-ma-im-start"];
                     </code>
                     <p>И на сервер прилетают подобные записи:</p>
                     <code>
@@ -88,8 +89,9 @@ this.timings['look-ma-finish'] = Date.now();
                             передавать только diff между ней и той, которая сохранена у пользователя?</q>
                             В браузере же останется просто наложить патч на клиенте.</p>
                     <p>На самое деле эта идея не нова. Уже существуют стандарты для HTTP — например,
-                            RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, — но по разным причинам они
-                            не получили должного распространения в браузерах и на серверах.</p>
+                            RFC 3229 <q>Delta encoding in HTTP</q> и <q>Google SDHC</q>, 
+                            — но по разным причинам они не получили должного распространения в браузерах
+                            и на серверах.</p>
                     <p>Мы же решили сделать свой аналог на JS. Чтобы реализовать этот метод обновления,
                             начали искать реализации diff на JS. На популярных хостингах кода нашли
                             библиотеки:<br>
@@ -187,7 +189,8 @@ this.timings['look-ma-finish'] = Date.now();
                     <address>
                         <p>Автор: <a href="#">@doochik</a></p>
                         <p>С++ разработик</p>
-                        <p>Электронная почта: (<a href='mailto://doochik@yandex-team.ru'>doochik@yandex-team.ru</a>)</p>
+                        <p>Электронная почта:
+                            (<a href="mailto://doochik@yandex-team.ru">doochik@yandex-team.ru</a>)</p>
                         <p>Компания: Яндекс</p>
                     </address>
                 </footer>
@@ -196,31 +199,40 @@ this.timings['look-ma-finish'] = Date.now();
         <section>
             <header><h4>Комментарии (3):</h4></header>
             <article>
-                <header>- <strong>Mogaika</strong> (<a href='mailto://mogaika@yandex-team.ru'>mogaika@yandex-team.ru</a>) 30 ноября 2014 в 17:05</header>
+                <header>- <strong>Mogaika</strong>
+                    (<a href="mailto://mogaika@yandex-team.ru">mogaika@yandex-team.ru</a>)
+                    30 ноября 2014 в 17:05</header>
                 <p>  А можете привести сравнение, на сколько быстрее грузится lite версия?</p>
             </article>
             <article>
-                <header>- <strong>JIguse</strong> (<a href='mailto://mrawesome@yandex.ru'>mrawesome@yandex.ru</a>) 29 ноября 2014 в 21:30</header>
+                <header>- <strong>JIguse</strong>
+                    (<a href="mailto://mrawesome@yandex.ru">mrawesome@yandex.ru</a>)
+                    29 ноября 2014 в 21:30</header>
                 <p>  Спасибо за статью, познавательно. Здорово, что Яндекс делится некоторыми
                         подробностями о внутренней работе сервисов.</p>
             </article>
             <article>
-                <header>- <strong>Brister</strong> (<a href='mailto://brist89@yandex-team.ru'>brist89@yandex-team.ru</a>) 24 ноября 2014 в 13:13</header>
+                <header>- <strong>Brister</strong>
+                    (<a href="mailto://brist89@yandex-team.ru">brist89@yandex-team.ru</a>)
+                    24 ноября 2014 в 13:13</header>
                 <p>  (кол-во счастливых пользователей + кол-во удовлетворенных / 2) / (кол-во всех).
                         Получается значение от нуля до единицы, которое, видимо, лучше всего показывает,
                         хорошо или плохо работает почта.</p>
                 <p>  наверное все-таки от 0.5 до 1</p>
             </article>
             <article>
-                <header>- <strong>alexeimois</strong> (<a href='mailto://test@yandex.ru'>test@yandex.ru</a>) 22 ноября 2014 в 17:35</header>
+                <header>- <strong>alexeimois</strong>
+                    (<a href="mailto://test@yandex.ru">test@yandex.ru</a>)
+                    22 ноября 2014 в 17:35</header>
                 <p>  Мы измеряем скорость загрузки с помощью Яндекс.Метрики:
-                        <a href='https://help.yandex.ru/metrika/reports/monitoring_timing.xml'>help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
+                        <a href="https://help.yandex.ru/metrika/reports/monitoring_timing.xml">
+                            help.yandex.ru/metrika/reports/monitoring_timing.xml</a></p>
             </article>
         </section>
     </main>
     <footer>
         <address>
-            <p>© Яндекс, <a href='mailto://help@yandex.ru'>help@yandex.ru</a>, Хохрякова, 10<br>
+            <p>© Яндекс, <a href="mailto://help@yandex.ru">help@yandex.ru</a>, Хохрякова, 10<br>
                     ```</p>
         </address>
     </footer>
